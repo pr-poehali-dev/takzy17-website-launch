@@ -326,8 +326,21 @@ export default function Index() {
               </ul>
             </div>
           </div>
-          <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-            © 2024 TAKZY17. Все права защищены.
+          <div className="border-t mt-8 pt-8">
+            <div className="bg-yellow-50 border-2 border-yellow-400 rounded-lg p-6 mb-6 max-w-3xl mx-auto">
+              <div className="flex items-start gap-3">
+                <Icon name="AlertTriangle" size={24} className="text-yellow-600 flex-shrink-0 mt-1" />
+                <div>
+                  <h4 className="font-bold text-lg mb-2 text-yellow-900">⚠️ Внимание! Сайт создан в юмористических целях</h4>
+                  <p className="text-sm text-yellow-900 leading-relaxed">
+                    Данный сайт создан исключительно в юмористических и демонстрационных целях. <strong>НИ В КОЕМ СЛУЧАЕ НЕ ОПЛАЧИВАЙТЕ!</strong> Вам ничего не придёт. Заходя на сайт, вы автоматически соглашаетесь с этими правилами и понимаете, что это шуточный проект. Никакие заказы не обрабатываются, никакие товары не отправляются. Это просто красивая демонстрация возможностей веб-разработки. 😊
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="text-center text-sm text-muted-foreground">
+              © 2024 TAKZY17. Все права защищены.
+            </div>
           </div>
         </div>
       </footer>
