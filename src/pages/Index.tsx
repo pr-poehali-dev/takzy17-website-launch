@@ -33,10 +33,10 @@ export default function Index() {
     );
   }, [searchQuery]);
 
-  const addToCart = (productId: number) => {
+  const addToCart = (productId: number, amount: number = 1) => {
     setCart(prev => ({
       ...prev,
-      [productId]: (prev[productId] || 0) + 1
+      [productId]: (prev[productId] || 0) + amount
     }));
   };
 
@@ -100,11 +100,15 @@ export default function Index() {
                     <div className="p-6">
                       <Badge variant="secondary" className="mb-2">{product.category}</Badge>
                       <h4 className="font-semibold text-lg mb-2">{product.name}</h4>
-                      <div className="flex items-center justify-between">
+                      <div className="mb-3">
                         <span className="text-2xl font-bold">{product.price} ₽<span className="text-sm text-muted-foreground">/{product.unit}</span></span>
-                        <Button onClick={() => addToCart(product.id)} size="sm" className="hover:scale-105 transition-transform">
-                          <Icon name="Plus" size={16} />
-                        </Button>
+                      </div>
+                      <div className="flex gap-2 flex-wrap">
+                        {[1, 2, 3, 4, 5].map(kg => (
+                          <Button key={kg} onClick={() => addToCart(product.id, kg)} size="sm" variant="outline" className="hover:scale-105 transition-transform">
+                            {kg} кг
+                          </Button>
+                        ))}
                       </div>
                     </div>
                   </Card>
@@ -137,11 +141,15 @@ export default function Index() {
                   <div className="p-4">
                     <Badge variant="secondary" className="mb-2 text-xs">{product.category}</Badge>
                     <h4 className="font-semibold mb-2">{product.name}</h4>
-                    <div className="flex items-center justify-between">
+                    <div className="mb-3">
                       <span className="text-xl font-bold">{product.price} ₽<span className="text-sm text-muted-foreground">/{product.unit}</span></span>
-                      <Button onClick={() => addToCart(product.id)} size="sm" className="hover:scale-105 transition-transform">
-                        <Icon name="Plus" size={16} />
-                      </Button>
+                    </div>
+                    <div className="flex gap-2 flex-wrap">
+                      {[1, 2, 3, 4, 5].map(kg => (
+                        <Button key={kg} onClick={() => addToCart(product.id, kg)} size="sm" variant="outline" className="hover:scale-105 transition-transform text-xs">
+                          {kg} кг
+                        </Button>
+                      ))}
                     </div>
                   </div>
                 </Card>
